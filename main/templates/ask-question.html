@@ -2,8 +2,8 @@
 {% block title %}Ask Question{% endblock %}
 {% block content %}
 <div class="container">
-    <div class="card mt-5">
-        <h5 class="card-header">Ask Question</h5>
+    <div class="card mt-5" style="background-color: #F8F9FA;">
+        <h5 class="card-header" style="text-align: center; background-color: rgb(52,58,63); color: white;">Ask Question</h5>
         <div class="card-body">
             {% for msg in messages %}
             <p class="text-success">{{msg}}</p>
@@ -14,7 +14,7 @@
                     {{form.as_table}}
                     <tr>
                         <td colspan="2">
-                            <button class="btn btn-primary">Submit</button>
+                            <button class="btn btn-primary" >Submit</button>
                         </td>
                     </tr>
                 </table>

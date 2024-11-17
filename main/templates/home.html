@@ -8,7 +8,7 @@
     <!-- Bootstrap 4 -->
     <link rel="stylesheet" href="{% static 'bootstrap.min.css' %}" />
 </head>
-<body>
+<body style="background-color: #bfce9b;">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
             <a class="navbar-brand" href="#">AskMe</a>
@@ -30,9 +30,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/accounts/profile">Profile</a>
                     </li>
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a class="nav-link" href="{% url 'logout' %}">Logout</a>
-                    </li>
+                    </li> -->
                     {% else %}
                     <li class="nav-item">
                         <a class="nav-link" href="/accounts/login">Login</a>
@@ -66,14 +66,14 @@
 
     <div class="container">
         {% for quest in quests %}
-        <div class="card mb-4 shadow">
+        <div class="card mb-4 shadow bg-light" style="background: #F2F2F2; border-width: 4px; border-radius: 10px; transition: border-color 0.3s ease;">
             <div class="card-body">
-                <h4 class="card-title"><a href="/detail/{{quest.id}}">{{quest.title}}</a></h4>
+                <h4 class="card-title"><a style="color: #333333" href="/detail/{{quest.id}}">{{quest.title}}</a></h4>
                 <p class="card-text">{{quest.detail}}</p>
-                <p>
-                    <a href="#" class="mr-2">{{quest.user.username}}</a>
-                    <a href="#" class="mr-2">{{quest.answer_set.count}} Answers</a>
-                    <a href="#" class="mr-2">{{quest.total_comments}} Comments</a>
+                <p style="font-size: 12px;">
+                    <a  href="#" class="mr-2">{{quest.answer_set.count}} Answers</a>
+                    <a  href="#" class="mr-2">{{quest.user.username}}</a>
+                    <!-- <a href="#" class="mr-2">{{quest.total_comments}} Comments</a> -->
                 </p>
             </div>
             <div class="card-footer">

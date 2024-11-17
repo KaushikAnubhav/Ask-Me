@@ -4,8 +4,8 @@
 {% block title %}{{quest.title}}{% endblock %}
 {% block content %}
 <!-- Question List -->
-    <div class="container">
-        <h2 class="my-4">{{quest.title}}</h2>
+    <div class="container" >
+        <h2 class="my-4" style="background-color: #F8F9FA;">{{quest.title}}</h2>
         <p>{{quest.detail}}</p>
         <p>
             tags:
@@ -40,14 +40,14 @@
                 </p>
                 <p>
                     <a href="#" class="mr-3">{{answer.user.username}}</a>
-                    <span class="mr-3"><span class="comment-count-{{answer.id}}">{{answer.comment_set.count}}</span> comments</span>
+                    <span class="mr-3" style="background-color: #F8F9FA;"><span class="comment-count-{{answer.id}}">{{answer.comment_set.count}}</span> comments</span>
                     <span>{{answer.add_time|date:'d/m/Y h:i:s'}}</span>
                 </p>
                 <!-- Comment Section Start -->
                 <h3 class="my-4">Comment</h3>
                 <div class="comment-wrapper-{{answer.id}}">
                     {% for comment in answer.comment_set.all %}
-                    <div class="card mb-2">
+                    <div class="card mb-2" style="background-color: #F8F9FA;">
                         <div class="card-body">
                             <p>{{comment.comment}}</p>
                             <p>
@@ -59,7 +59,7 @@
                 </div>
                 {% if user.is_authenticated %}
                 <!-- Comment Form -->
-                <div class="card my-3">
+                <div class="card my-3" style="background-color: #F8F9FA;">
                     <h6 class="card-header">Add Comment</h6>
                     <div class="card-body">
                         <textarea class="form-control comment-text-{{answer.id}}"></textarea>
@@ -111,7 +111,7 @@
                     if(res.bool==true){
                         $(".comment-text-"+_answerid).val('');
                         // Append Element
-                        var _html='<div class="card mb-2 animate__animated animate__bounce">\
+                        var _html='<div class="card mb-2 animate__animated animate__bounce" style="background-color: #F8F9FA">\
                         <div class="card-body">\
                             <p>'+_comment+'</p>\
                             <p>\

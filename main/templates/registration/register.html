@@ -2,7 +2,7 @@
 {% block title %}User Register{% endblock %}
 {% block content %}
 <div class="container">
-    <div class="card mt-5">
+    <div class="card mt-5" style="background: #F2F2F2;">
         <h5 class="card-header">User Register</h5>
         <div class="card-body">
             {% for msg in messages %}
@@ -22,4 +22,37 @@
         </div>
     </div>
 </div>
+
+
+<!-- 
+<div class="container">
+    <div class="card mt-5 border-0 shadow-sm">
+        <div class="card-body p-4">
+            <h1 class="card-title text-center">Sign In</h1>
+            {% for msg in messages %}
+            <p class="text-danger text-center">{{msg}}</p>
+            {% endfor %}
+            <form method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                    {{ form.email.label_tag }}
+                    {{ form.email }}
+                </div>
+                <div class="form-group">
+                    {{ form.password.label_tag }}
+                    {{ form.password   
+ }}
+                </div>
+                <button type="submit" class="btn btn-primary   
+ btn-block">Sign In</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+-->
+
+
+
 {% endblock %}

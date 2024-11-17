@@ -2,19 +2,46 @@
 {% load static %}
 {% block title %}All Tags{% endblock %}
 {% block content %}
-    <!-- Question List -->
-    <div class="container py-5">
-        <div class="row">
-            {% for tag in tags %}
-            <div class="col-2">
-                <div class="card">
-                    <div class="card-body">
-                        <p class="card-text"><a href="/tag/{{tag.name|slugify}}">{{tag.name}} 
-                            <span class="badge badge-info">{{tag.count}}</span></a></p>
-                    </div>
+
+<!-- Tag List -->
+<div class="container py-5" style="background-color:#bfce9b; height: 100vh;">
+    <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4"> 
+        {% for tag in tags %}
+        <div class="col ms-3 mb-4" > <!-- Added mb-4 for margin-bottom, ms-3 for horizontal margin -->
+            <div class="card border-2 shadow-lg h-100 p-3" style="border-width: 3px; border-color: rgba(0, 0, 0, .125); transition: border-color 0.3s ease; background-color: #F8F9FA;">
+                <div class="card-body d-flex flex-column">
+                    <p class="card-text">
+                        <a href="/tag/{{ tag.name|slugify }}" class="text-dark font-weight-bold text-decoration-none">
+                            {{ tag.name }} 
+                            <span class="badge bg-info text-white ms-2">{{ tag.count }}</span>
+                        </a>
+                    </p>
                 </div>
             </div>
-            {% endfor %}
         </div>
+        {% empty %}
+        <div class="col-12">
+            <div class="alert alert-info text-center">
+                No tags available at the moment.
+            </div>
+        </div>
+        {% endfor %}
     </div>
+</div>
+
+<script>
+    document.querySelectorAll('.card').forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.classList.add('border-dark');
+            this.style.boxShadow = '0 4px 15px rgba(0, 0, 0, 0.2)';
+        });
+        card.addEventListener('mouseleave', function() {
+            this.classList.remove('border-dark');
+            this.style.boxShadow = '';
+        });
+    });
+</script>
+
+
+
 {% endblock %}

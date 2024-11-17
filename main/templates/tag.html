@@ -6,7 +6,7 @@
     <!-- Question List -->
     <div class="container py-5">
         {% for quest in quests %}
-        <div class="card mb-3">
+        <div class="card mb-3" style="background-color: #F8F9FA;">
             <div class="card-body">
                 <h4 class="card-title"><a href="/detail/{{quest.id}}">{{quest.title}}</a></h4>
                 <p class="card-text">{{quest.detail}}</p>
