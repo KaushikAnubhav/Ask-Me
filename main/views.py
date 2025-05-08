@@ -96,6 +96,7 @@ def register(request):
     return render(request,'registration/register.html',{'form':form})
 
 # Ask Form
+"""
 def ask_form(request):
     form=QuestionForm
     if request.method=='POST':
@@ -105,6 +106,19 @@ def ask_form(request):
             questForm.user=request.user
             questForm.save()
             messages.success(request,'Question has been added.')
+    return render(request,'ask-question.html',{'form':form})
+"""
+def ask_form(request):
+    form=QuestionForm
+    if request.method=='POST':
+        questForm=QuestionForm(request.POST)
+        if questForm.is_valid():
+            questForm=questForm.save(commit=False)
+            questForm.user=request.user
+            questForm.save()
+            messages.success(request,'Question has been added.')
+        else:
+            form = questForm
     return render(request,'ask-question.html',{'form':form})
 
 

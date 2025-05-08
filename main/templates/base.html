@@ -20,9 +20,10 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
-            <a class="navbar-brand" href="/"> <img src="/static/images/logo.png" alt="Logo" width="40" height="40" class="d-inline-block align-top">AskMe</a>
-            <!-- <a class="navbar-brand" href="/">AskMe</a> -->
+        <div class="container" style="background-color: inherit;">
+            <a class="navbar-brand" href="/"> <img src="/static/images/logo.png" alt="Logo" width="40" height="40" class="d-inline-block align-top" style="margin-right: 15px; font-family: Archivo, sans-serif;">
+                <span style="font-family: Archivo, sans-serif; font-size: 1.65rem;">AskMe</span>  
+              </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -52,13 +53,21 @@
                     <!-- <li class="nav-item">
                         <a class="nav-link" href="{% url 'logout' %}">Logout</a>
                     </li> -->
+                    <li class="nav-item">
+                        <form method="post" action="{% url 'logout' %}">
+                            {% csrf_token %}
+                            <button class="nav-link btn btn-link" type="submit" style="padding:1; border: none; background: none;">
+                                Logout
+                            </button>
+                        </form>
+                    </li>
                     {% else %}
                     <li class="nav-item">
                         <a class="nav-link" href="/accounts/login">Login</a>
                     </li>
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a class="nav-link" href="/accounts/register">Register</a>
-                    </li>
+                    </li> -->
                     {% endif %}
                 </ul>
             </div>
